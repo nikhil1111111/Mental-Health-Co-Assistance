@@ -1,4 +1,4 @@
-# kaamwaale_app
+# Mental Health Co-Assistance
 
 Anon Support Companion — a lightweight wellbeing app with anonymous chat and self-care tools.
 
