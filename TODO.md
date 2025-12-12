@@ -1,5 +1,1 @@
-- [x] Modify main.dart to skip Firebase initialization on Linux
-- [x] Adjust AuthWrapper to handle non-Firebase platforms
-- [x] Adjust ProfileScreen for non-Firebase case
-- [x] Update MainScreen to use new screens and theme
-- [x] Update LoginScreen to use AuthProvider
+
