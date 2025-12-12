@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mental Health Companion by KaamWaale.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="kaamwaale_app">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>Mental Health Companion</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: linear-gradient(135deg, #0f172a, #0b3b2e 40%, #0f172a 80%);
+      --card: rgba(255, 255, 255, 0.08);
+      --text: #e9f5ef;
+      --accent: #4caf50;
+      --muted: #8fa3b1;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      min-height: 100vh;
+      color: var(--text);
+      overflow: hidden;
+      position: relative;
+    }
+    .blob {
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      filter: blur(120px);
+      opacity: 0.7;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #4caf50, transparent 60%);
+      top: -80px;
+      right: -120px;
+      pointer-events: none;
+    }
+    .blob-secondary {
+      position: absolute;
+      width: 380px;
+      height: 380px;
+      filter: blur(120px);
+      opacity: 0.6;
+      border-radius: 50%;
+      background: radial-gradient(circle at 20% 20%, #f3e99f, transparent 60%);
+      bottom: -140px;
+      left: -100px;
+      pointer-events: none;
+    }
+    #loader {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      min-height: 100vh;
+      padding: 24px;
+      text-align: center;
+    }
+    .loader-card {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      border-radius: 20px;
+      padding: 28px 32px;
+      max-width: 420px;
+      width: 100%;
+      backdrop-filter: blur(12px);
+    }
+    .brand {
+      font-family: 'Poppins', 'Inter', sans-serif;
+      font-size: 24px;
+      letter-spacing: 0.6px;
+      color: var(--text);
+    }
+    .tagline {
+      color: var(--muted);
+      margin-top: 4px;
+      line-height: 1.5;
+    }
+    .spinner {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 3px solid rgba(255, 255, 255, 0.18);
+      border-top-color: var(--accent);
+      margin: 12px auto 0;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .subtext {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 10px;
+    }
+    noscript {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 8px 12px;
+      border-radius: 10px;
+      color: #fefefe;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="blob"></div>
+  <div class="blob-secondary"></div>
+  <div id="loader" role="status" aria-live="polite">
+    <div class="loader-card">
+      <div class="brand">Mental Health Companion</div>
+      <div class="tagline">Booting your anonymous support space...</div>
+      <div class="spinner" aria-hidden="true"></div>
+      <div class="subtext">If this takes long, check your connection.</div>
+    </div>
+  </div>
+  <noscript>Please enable JavaScript to run this app.</noscript>
+  <script>
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('loader');
+      if (!loader) return;
+      loader.style.opacity = '0';
+      loader.style.transition = 'opacity 300ms ease';
+      setTimeout(() => loader.remove(), 350);
+    });
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
